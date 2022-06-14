@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "models/main.py", line 8, in <module>
+    import pandas as pd
+  File "/home/joker/.local/lib/python3.5/site-packages/pandas/__init__.py", line 13, in <module>
+    __import__(dependency)
+  File "/home/joker/.local/lib/python3.5/site-packages/numpy/__init__.py", line 145, in <module>
+    from . import lib
+  File "/home/joker/.local/lib/python3.5/site-packages/numpy/lib/__init__.py", line 40, in <module>
+    from .financial import *
+  File "/home/joker/.local/lib/python3.5/site-packages/numpy/lib/financial.py", line 16, in <module>
+  File "/usr/lib/python3.5/decimal.py", line 3, in <module>
+    from _decimal import *
+  File "/usr/lib/python3.5/abc.py", line 151, in register
+KeyboardInterrupt

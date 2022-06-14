@@ -1,0 +1,36 @@
+Traceback (most recent call last):
+  File "models/main.py", line 9, in <module>
+    import tensorflow as tf
+  File "/home/joker/.local/lib/python3.5/site-packages/tensorflow/__init__.py", line 41, in <module>
+    from tensorflow.python.tools import module_util as _module_util
+  File "/home/joker/.local/lib/python3.5/site-packages/tensorflow/python/__init__.py", line 64, in <module>
+    from tensorflow.python.framework.framework_lib import *  # pylint: disable=redefined-builtin
+  File "/home/joker/.local/lib/python3.5/site-packages/tensorflow/python/framework/framework_lib.py", line 30, in <module>
+    from tensorflow.python.framework.sparse_tensor import SparseTensor
+  File "/home/joker/.local/lib/python3.5/site-packages/tensorflow/python/framework/sparse_tensor.py", line 29, in <module>
+    from tensorflow.python.framework import constant_op
+  File "/home/joker/.local/lib/python3.5/site-packages/tensorflow/python/framework/constant_op.py", line 29, in <module>
+    from tensorflow.python.eager import execute
+  File "/home/joker/.local/lib/python3.5/site-packages/tensorflow/python/eager/execute.py", line 23, in <module>
+    from google.protobuf import text_format
+  File "/home/joker/.local/lib/python3.5/site-packages/google/protobuf/text_format.py", line 1191, in <module>
+    class Tokenizer(object):
+  File "/home/joker/.local/lib/python3.5/site-packages/google/protobuf/text_format.py", line 1209, in Tokenizer
+    for mark in _QUOTES
+  File "/usr/lib/python3.5/re.py", line 224, in compile
+    return _compile(pattern, flags)
+  File "/usr/lib/python3.5/re.py", line 293, in _compile
+    p = sre_compile.compile(pattern, flags)
+  File "/usr/lib/python3.5/sre_compile.py", line 540, in compile
+    code = _code(p, flags)
+  File "/usr/lib/python3.5/sre_compile.py", line 522, in _code
+    _compile_info(code, p, flags)
+  File "/usr/lib/python3.5/sre_compile.py", line 416, in _compile_info
+    lo, hi = pattern.getwidth()
+  File "/usr/lib/python3.5/sre_parse.py", line 177, in getwidth
+    l, h = av.getwidth()
+  File "/usr/lib/python3.5/sre_parse.py", line 191, in getwidth
+    i, j = av[2].getwidth()
+  File "/usr/lib/python3.5/sre_parse.py", line 213, in getwidth
+    self.width = min(lo, MAXREPEAT - 1), min(hi, MAXREPEAT)
+KeyboardInterrupt

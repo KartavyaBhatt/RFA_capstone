@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "models/main.py", line 8, in <module>
+    import pandas as pd
+  File "/home/joker/.local/lib/python3.5/site-packages/pandas/__init__.py", line 19, in <module>
+    "Missing required dependencies {0}".format(missing_dependencies))
+ImportError: Missing required dependencies ['numpy']

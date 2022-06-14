@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "models/main.py", line 8, in <module>
+    import pandas as pd
+  File "/home/joker/.local/lib/python3.5/site-packages/pandas/__init__.py", line 43, in <module>
+    from pandas.core.sparse.api import *
+  File "/home/joker/.local/lib/python3.5/site-packages/pandas/core/sparse/api.py", line 4, in <module>
+    from pandas.core.sparse.frame import SparseDataFrame
+  File "/home/joker/.local/lib/python3.5/site-packages/pandas/core/sparse/frame.py", line 1042, in <module>
+    ops.add_flex_arithmetic_methods(SparseDataFrame)
+  File "/home/joker/.local/lib/python3.5/site-packages/pandas/core/ops.py", line 1434, in add_flex_arithmetic_methods
+  File "/home/joker/.local/lib/python3.5/site-packages/pandas/core/ops.py", line 1314, in _create_methods
+    rmul=arith_method(cls, rmul, special),
+  File "/home/joker/.local/lib/python3.5/site-packages/pandas/core/ops.py", line 2016, in _arith_method_FRAME
+    def f(self, other, axis=default_axis, level=None, fill_value=None):
+  File "/home/joker/.local/lib/python3.5/site-packages/pandas/util/_decorators.py", line 314, in __call__
+    func.__doc__ = dedent(self.join.join(docitems))
+  File "/usr/lib/python3.5/textwrap.py", line 432, in dedent
+KeyboardInterrupt

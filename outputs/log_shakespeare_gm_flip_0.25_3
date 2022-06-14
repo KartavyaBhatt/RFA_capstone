@@ -1,0 +1,8 @@
+models/shakespeare/stacked_lstm.py
+############################## shakespeare.stacked_lstm ##############################
+Traceback (most recent call last):
+  File "models/main.py", line 176, in <module>
+    main()
+  File "models/main.py", line 53, in main
+    tf.reset_default_graph()
+AttributeError: module 'tensorflow' has no attribute 'reset_default_graph'

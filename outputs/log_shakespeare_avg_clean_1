@@ -1,0 +1,47 @@
+2022-06-14 06:20:25.398232: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libnvidia-fatbinaryloader.so.396.82: cannot open shared object file: No such file or directory
+2022-06-14 06:20:25.398298: E tensorflow/stream_executor/cuda/cuda_driver.cc:313] failed call to cuInit: UNKNOWN ERROR (303)
+2022-06-14 06:20:25.398342: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (kartavya): /proc/driver/nvidia/version does not exist
+2022-06-14 06:20:25.749489: I tensorflow/core/platform/cpu_feature_guard.cc:143] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2022-06-14 06:20:25.756775: I tensorflow/core/platform/profile_utils/cpu_utils.cc:102] CPU Frequency: 2195000000 Hz
+2022-06-14 06:20:25.757019: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x53ed1f0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2022-06-14 06:20:25.757052: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2022-06-14 06:20:35.750393: W tensorflow/core/framework/cpu_allocator_impl.cc:81] Allocation of 251525120 exceeds 10% of free system memory.
+2022-06-14 06:20:35.948182: W tensorflow/core/framework/cpu_allocator_impl.cc:81] Allocation of 251525120 exceeds 10% of free system memory.
+2022-06-14 06:21:26.227680: W tensorflow/core/framework/cpu_allocator_impl.cc:81] Allocation of 314081280 exceeds 10% of free system memory.
+2022-06-14 06:21:26.370678: W tensorflow/core/framework/cpu_allocator_impl.cc:81] Allocation of 314081280 exceeds 10% of free system memory.
+2022-06-14 06:21:30.797950: W tensorflow/core/framework/cpu_allocator_impl.cc:81] Allocation of 209459200 exceeds 10% of free system memory.
+models/shakespeare/stacked_lstm.py
+############################## shakespeare.stacked_lstm ##############################
+Namespace(aggregation='mean', batch_size=8, clients_per_round=30, corruption=None, data_dir='data', dataset='shakespeare', decay_lr_every=50, eval_every=20, fraction_corrupt=0.1, lr=0.64, lr_decay=2.0, minibatch=None, model='stacked_lstm', no_logging=False, num_epochs=1, num_rounds=600, output_summary_file='outputs/outputs_shakespeare_avg_clean_1', patience_iter=20, seed=1, validation=False, weiszfeld_maxiter=4)
+#Clients = 1089 ; setup time = 0:00:02
+Using true labels for corrupted data as well
+0, train_loss: 3.97124, test_accuracy: 0.0215124, test_loss: 3.97122, train_accuracy: 0.0217375, Time: 0:07:50
+--- Round 1 of 600: Training 30 Clients ---
+			Corrupted 0 out of 30 clients. 0.000 fraction
+			Round: 1 AvgLoss: 2.690 Norm: 25.33 Time: 0:04:02 Tot_time 0:11:55
+--- Round 2 of 600: Training 30 Clients ---
+			Corrupted 0 out of 30 clients. 0.000 fraction
+Traceback (most recent call last):
+  File "models/main.py", line 177, in <module>
+    main()
+  File "models/main.py", line 120, in main
+    lr=args.lr)
+  File "/home/joker/Desktop/Capstone/RFA_capstone/models/server.py", line 60, in train_model
+    comp, num_samples, averaged_loss, update = c.train(num_epochs, batch_size, minibatch, lr)
+  File "/home/joker/Desktop/Capstone/RFA_capstone/models/client.py", line 30, in train
+    comp, update, averaged_loss = self.model.train(data, num_epochs, batch_size, lr)
+  File "/home/joker/Desktop/Capstone/RFA_capstone/models/model.py", line 101, in train
+    feed_dict={self.features: input_data, self.labels: target_data, self.learning_rate_tensor: lr}
+  File "/home/joker/.local/lib/python3.5/site-packages/tensorflow/python/client/session.py", line 958, in run
+    run_metadata_ptr)
+  File "/home/joker/.local/lib/python3.5/site-packages/tensorflow/python/client/session.py", line 1181, in _run
+    feed_dict_tensor, options, run_metadata)
+  File "/home/joker/.local/lib/python3.5/site-packages/tensorflow/python/client/session.py", line 1359, in _do_run
+    run_metadata)
+  File "/home/joker/.local/lib/python3.5/site-packages/tensorflow/python/client/session.py", line 1365, in _do_call
+    return fn(*args)
+  File "/home/joker/.local/lib/python3.5/site-packages/tensorflow/python/client/session.py", line 1350, in _run_fn
+    target_list, run_metadata)
+  File "/home/joker/.local/lib/python3.5/site-packages/tensorflow/python/client/session.py", line 1443, in _call_tf_sessionrun
+    run_metadata)
+KeyboardInterrupt

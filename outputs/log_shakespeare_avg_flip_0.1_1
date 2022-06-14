@@ -1,0 +1,38 @@
+2022-06-14 06:33:49.554007: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libnvidia-fatbinaryloader.so.396.82: cannot open shared object file: No such file or directory
+2022-06-14 06:33:49.554068: E tensorflow/stream_executor/cuda/cuda_driver.cc:313] failed call to cuInit: UNKNOWN ERROR (303)
+2022-06-14 06:33:49.554096: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (kartavya): /proc/driver/nvidia/version does not exist
+2022-06-14 06:33:49.894702: I tensorflow/core/platform/cpu_feature_guard.cc:143] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2022-06-14 06:33:49.902071: I tensorflow/core/platform/profile_utils/cpu_utils.cc:102] CPU Frequency: 2195000000 Hz
+2022-06-14 06:33:49.902285: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x5ad4290 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2022-06-14 06:33:49.902317: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2022-06-14 06:34:05.245558: W tensorflow/core/framework/cpu_allocator_impl.cc:81] Allocation of 228034560 exceeds 10% of free system memory.
+2022-06-14 06:34:05.334038: W tensorflow/core/framework/cpu_allocator_impl.cc:81] Allocation of 228034560 exceeds 10% of free system memory.
+2022-06-14 06:34:14.032183: W tensorflow/core/framework/cpu_allocator_impl.cc:81] Allocation of 181852160 exceeds 10% of free system memory.
+2022-06-14 06:34:14.104464: W tensorflow/core/framework/cpu_allocator_impl.cc:81] Allocation of 181852160 exceeds 10% of free system memory.
+2022-06-14 06:34:18.376895: W tensorflow/core/framework/cpu_allocator_impl.cc:81] Allocation of 251525120 exceeds 10% of free system memory.
+models/shakespeare/stacked_lstm.py
+############################## shakespeare.stacked_lstm ##############################
+Namespace(aggregation='mean', batch_size=8, clients_per_round=30, corruption='flip', data_dir='data', dataset='shakespeare', decay_lr_every=50, eval_every=20, fraction_corrupt=0.1, lr=0.64, lr_decay=2.0, minibatch=None, model='stacked_lstm', no_logging=False, num_epochs=1, num_rounds=600, output_summary_file='outputs/outputs_shakespeare_avg_flip_0.1_1', patience_iter=20, seed=1, validation=False, weiszfeld_maxiter=4)
+Corrupting 0.1061 fraction of data
+#Clients = 1089 ; setup time = 0:00:02
+Using true labels for corrupted data as well
+Traceback (most recent call last):
+  File "models/main.py", line 177, in <module>
+    main()
+  File "models/main.py", line 96, in main
+    s = log_helper(0)
+  File "models/main.py", line 83, in log_helper
+    stat_metrics = server.test_model(clients, train_and_test=True)
+  File "/home/joker/Desktop/Capstone/RFA_capstone/models/server.py", line 107, in test_model
+    c_metrics = client.test(self.model.cur_model, train_and_test)
+  File "/home/joker/Desktop/Capstone/RFA_capstone/models/client.py", line 49, in test
+    return model.test(self.eval_data, self.train_data if train_and_test else None)
+  File "/home/joker/Desktop/Capstone/RFA_capstone/models/model.py", line 132, in test
+    feed_dict={self.features: x_vecs, self.labels: labels}
+  File "/home/joker/.local/lib/python3.5/site-packages/tensorflow/python/client/session.py", line 958, in run
+    run_metadata_ptr)
+  File "/home/joker/.local/lib/python3.5/site-packages/tensorflow/python/client/session.py", line 1150, in _run
+    np_val = np.asarray(subfeed_val, dtype=subfeed_dtype)
+  File "/home/joker/.local/lib/python3.5/site-packages/numpy/core/_asarray.py", line 85, in asarray
+    return array(a, dtype, copy=False, order=order)
+KeyboardInterrupt

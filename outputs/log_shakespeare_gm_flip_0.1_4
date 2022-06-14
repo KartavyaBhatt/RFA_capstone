@@ -1,0 +1,9 @@
+shakespeare/stacked_lstm.py
+Please specify a valid dataset and a valid model.
+############################## shakespeare.stacked_lstm ##############################
+Traceback (most recent call last):
+  File "models/main.py", line 175, in <module>
+    main()
+  File "models/main.py", line 40, in main
+    tf.logging.set_verbosity(tf.logging.ERROR)
+AttributeError: module 'tensorflow' has no attribute 'logging'

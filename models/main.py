@@ -21,7 +21,8 @@ def main():
     args = utils.parse_args()
     global_start_time = start_time = time.time()
 
-    model_path = '{}/{}.py'.format(args.dataset, args.model)
+    model_path = 'models/{}/{}.py'.format(args.dataset, args.model)
+    print(model_path)
     if not os.path.exists(model_path):
         print('Please specify a valid dataset and a valid model.')
     model_path = '{}.{}'.format(args.dataset, args.model)
@@ -36,7 +37,8 @@ def main():
     clients_per_round = args.clients_per_round if args.clients_per_round != -1 else tup[2]
 
     # Suppress tf warnings
-    tf.logging.set_verbosity(tf.logging.ERROR)
+    # tf.logging.set_verbosity(tf.logging.ERROR)
+    tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
 
     # Create 2 different models: one for server and one shared by all clients
     model_params = MODEL_PARAMS[model_path]
@@ -48,7 +50,8 @@ def main():
         args.lr = model_params[0]
     if args.decay_lr_every is None:
         args.decay_lr_every = 100 if args.dataset == 'femnist' else 50
-    tf.reset_default_graph()
+    # tf.reset_default_graph()
+    tf.compat.v1.reset_default_graph()
     print(args)
     client_model = ClientModel(*model_params, seed=args.seed)
     server_model = ServerModel(ClientModel(*model_params, seed=args.seed - 1))

@@ -18,12 +18,12 @@ options=" ${main_args} --num-rounds ${num_rounds} --eval-every 20 --clients-per-
 
 for seed in 1 2 3 4 5
 do
-    time python models/main.py $options --seed $seed  --output_summary_file ${outf}_clean_${seed}  > ${logf}_clean_${seed} 2>&1
+    time python3 models/main.py $options --seed $seed  --output_summary_file ${outf}_clean_${seed}  > ${logf}_clean_${seed} 2>&1
     for corruption in flip p_x
     do
         for frac in 0.1 0.25
         do
-            time python models/main.py $options --seed $seed --corruption $corruption --fraction-corrupt $frac --output_summary_file ${outf}_${corruption}_${frac}_${seed}  > ${logf}_${corruption}_${frac}_${seed} 2>&1
+            time python3 models/main.py $options --seed $seed --corruption $corruption --fraction-corrupt $frac --output_summary_file ${outf}_${corruption}_${frac}_${seed}  > ${logf}_${corruption}_${frac}_${seed} 2>&1
         done
     done
 done
@@ -48,12 +48,12 @@ options=" ${main_args} --num-rounds ${num_rounds} --eval-every 20 --clients-per-
 
 for seed in 1 2 3 4 5
 do
-    time python models/main.py $options --seed $seed  --output_summary_file ${outf}_clean_${niter}_${seed}  > ${logf}_clean_${niter}_${seed} 2>&1
+    time python3 models/main.py $options --seed $seed  --output_summary_file ${outf}_clean_${niter}_${seed}  > ${logf}_clean_${niter}_${seed} 2>&1
     for corruption in flip p_x
     do
         for frac in 0.1 0.25
         do
-            time python models/main.py $options --seed $seed --corruption $corruption --fraction-corrupt $frac --output_summary_file ${outf}_${corruption}_${frac}_${seed}  > ${logf}_${corruption}_${frac}_${seed} 2>&1
+            time python3 models/main.py $options --seed $seed --corruption $corruption --fraction-corrupt $frac --output_summary_file ${outf}_${corruption}_${frac}_${seed}  > ${logf}_${corruption}_${frac}_${seed} 2>&1
         done
     done
 done
@@ -76,13 +76,13 @@ common=" --num-rounds ${num_rounds} --eval-every ${eval_every} --clients-per-rou
 for seed in 1 2 3 4 5
 do
         corruption=clean
-        time python models/main.py ${main_args}  $common --seed $seed --output_summary_file ${outf}_${corruption}_${seed} > ${logf}_${corruption}_${seed} 2>&1
+        time python3 models/main.py ${main_args}  $common --seed $seed --output_summary_file ${outf}_${corruption}_${seed} > ${logf}_${corruption}_${seed} 2>&1
 
         for corruption in flip omniscient
         do
             for frac in 0.01 0.25
             do
-                time python models/main.py ${main_args}  $common --seed $seed --corruption $corruption --fraction-corrupt $frac --output_summary_file ${outf}_${corruption}_${frac}_${seed}  > ${logf}_${corruption}_${frac}_${seed} 2>&1
+                time python3 models/main.py ${main_args}  $common --seed $seed --corruption $corruption --fraction-corrupt $frac --output_summary_file ${outf}_${corruption}_${frac}_${seed}  > ${logf}_${corruption}_${frac}_${seed} 2>&1
             done
         done
 done

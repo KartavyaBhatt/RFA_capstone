@@ -1,0 +1,26 @@
+Traceback (most recent call last):
+  File "models/main.py", line 9, in <module>
+    import tensorflow as tf
+  File "/home/joker/.local/lib/python3.5/site-packages/tensorflow/__init__.py", line 41, in <module>
+    from tensorflow.python.tools import module_util as _module_util
+  File "/home/joker/.local/lib/python3.5/site-packages/tensorflow/python/__init__.py", line 74, in <module>
+    from tensorflow.python.ops.standard_ops import *
+  File "/home/joker/.local/lib/python3.5/site-packages/tensorflow/python/ops/standard_ops.py", line 27, in <module>
+    from tensorflow.python.training.experimental import loss_scaling_gradient_tape
+  File "/home/joker/.local/lib/python3.5/site-packages/tensorflow/python/training/experimental/loss_scaling_gradient_tape.py", line 21, in <module>
+    from tensorflow.python.distribute import distribution_strategy_context
+  File "/home/joker/.local/lib/python3.5/site-packages/tensorflow/python/distribute/__init__.py", line 23, in <module>
+    from tensorflow.python.distribute import cross_device_ops
+  File "/home/joker/.local/lib/python3.5/site-packages/tensorflow/python/distribute/cross_device_ops.py", line 31, in <module>
+    from tensorflow.python.distribute import tpu_values
+  File "/home/joker/.local/lib/python3.5/site-packages/tensorflow/python/distribute/tpu_values.py", line 34, in <module>
+    from tensorflow.python.tpu import tpu
+  File "/home/joker/.local/lib/python3.5/site-packages/tensorflow/python/tpu/tpu.py", line 30, in <module>
+    from tensorflow.python.compiler.xla import xla
+  File "/home/joker/.local/lib/python3.5/site-packages/tensorflow/python/compiler/xla/__init__.py", line 23, in <module>
+    from tensorflow.python.compiler.xla import xla
+  File "/home/joker/.local/lib/python3.5/site-packages/tensorflow/python/compiler/xla/xla.py", line 26, in <module>
+    from tensorflow.compiler.jit.ops import xla_ops
+  File "<frozen importlib._bootstrap>", line 968, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 160, in __init__
+KeyboardInterrupt

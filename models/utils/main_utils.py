@@ -21,7 +21,7 @@ SUMMARY_METRICS_PATH = 'output.log'
 
 def model_norm(model):
     with model.graph.as_default():
-        weights = [np.linalg.norm(model.sess.run(v)) for v in tf.trainable_variables()]
+        weights = [np.linalg.norm(model.sess.run(v)) for v in tf.compat.v1.trainable_variables()]
     return np.linalg.norm(weights)
 
 

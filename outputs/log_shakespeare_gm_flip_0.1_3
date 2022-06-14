@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "models/main.py", line 8, in <module>
+    import pandas as pd
+  File "/home/joker/.local/lib/python3.5/site-packages/pandas/__init__.py", line 49, in <module>
+    from pandas.io.api import *
+  File "/home/joker/.local/lib/python3.5/site-packages/pandas/io/api.py", line 12, in <module>
+    from pandas.io.json import read_json
+  File "/home/joker/.local/lib/python3.5/site-packages/pandas/io/json/__init__.py", line 1, in <module>
+    from .json import to_json, read_json, loads, dumps  # noqa
+  File "/home/joker/.local/lib/python3.5/site-packages/pandas/io/json/json.py", line 24, in <module>
+    from .table_schema import build_table_schema, parse_table_schema
+  File "/home/joker/.local/lib/python3.5/site-packages/pandas/io/json/table_schema.py", line 16, in <module>
+  File "/home/joker/.local/lib/python3.5/site-packages/pandas/api/__init__.py", line 2, in <module>
+    from . import types, extensions  # noqa
+  File "<frozen importlib._bootstrap>", line 969, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 958, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 667, in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 314, in __enter__
+KeyboardInterrupt

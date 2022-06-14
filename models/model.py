@@ -22,10 +22,11 @@ class Model(ABC):
         if seed is not None:
             self.graph.seed = seed
         with self.graph.as_default():
-            self.learning_rate_tensor = tf.placeholder(tf.float32, shape=[])
+            # self.learning_rate_tensor = tf.placeholder(tf.float32, shape=[])
+            self.learning_rate_tensor = tf.compat.v1.placeholder(tf.float32, shape=[])
             self.features, self.labels, self.loss_op, self.train_op, self.eval_metric_ops = self.create_model()
-            self.saver = tf.train.Saver()
-        self.sess = tf.Session(graph=self.graph)
+            self.saver = tf.compat.v1.train.Saver ()
+        self.sess = tf.compat.v1.Session(graph=self.graph)
 
         self.size = graph_size(self.graph)
 
@@ -33,7 +34,7 @@ class Model(ABC):
         self.max_batch_size = max_batch_size if max_batch_size is not None else 2 ** 14
 
         with self.graph.as_default():
-            self.sess.run(tf.global_variables_initializer())
+            self.sess.run(tf.compat.v1.global_variables_initializer())
 
             # metadata = tf.RunMetadata()
             # opts = tf.profiler.ProfileOptionBuilder(
@@ -46,7 +47,7 @@ class Model(ABC):
     def optimizer(self):
         """Optimizer to be used by the model."""
         if self._optimizer is None:
-            self._optimizer = tf.train.GradientDescentOptimizer(learning_rate=self.learning_rate_tensor)
+            self._optimizer = tf.compat.v1.train.GradientDescentOptimizer(learning_rate=self.learning_rate_tensor)
 
         return self._optimizer
 
@@ -85,7 +86,7 @@ class Model(ABC):
             lr = self.lr
         averaged_loss = 0.0
         with self.graph.as_default():
-            init_values = [self.sess.run(v) for v in tf.trainable_variables()]
+            init_values = [self.sess.run(v) for v in tf.compat.v1.trainable_variables()]
 
         batched_x, batched_y = batch_data(data, batch_size, rng=self.rng, shuffle=True)
         for epoch in range(num_epochs):
@@ -102,7 +103,7 @@ class Model(ABC):
                 total_loss += loss
             averaged_loss = total_loss / len(batched_x)
         with self.graph.as_default():
-            update = [self.sess.run(v) for v in tf.trainable_variables()]
+            update = [self.sess.run(v) for v in tf.compat.v1.trainable_variables()]
             update = [np.subtract(update[i], init_values[i]) for i in range(len(update))]
         comp = num_epochs * len(batched_y) * batch_size * self.flops
         return comp, update, averaged_loss
@@ -176,13 +177,13 @@ class ServerModel:
         """
         var_vals = {}
         with self.model.graph.as_default():
-            all_vars = tf.trainable_variables()
+            all_vars = tf.compat.v1.trainable_variables()
             for v in all_vars:
                 val = self.model.sess.run(v)
                 var_vals[v.name] = val
         for c in clients:
             with c.model.graph.as_default():
-                all_vars = tf.trainable_variables()
+                all_vars = tf.compat.v1.trainable_variables()
                 for v in all_vars:
                     v.load(var_vals[v.name], c.model.sess)
 
@@ -241,7 +242,7 @@ class ServerModel:
 
         if max_update_norm is None or update_norm < max_update_norm:
             with self.model.graph.as_default():
-                all_vars = tf.trainable_variables()
+                all_vars = tf.compat.v1.trainable_variables()
                 for i, v in enumerate(all_vars):
                     init_val = self.model.sess.run(v)
                     v.load(np.add(init_val, weighted_updates[i]), self.model.sess)

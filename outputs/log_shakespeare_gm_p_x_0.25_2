@@ -1,0 +1,42 @@
+Traceback (most recent call last):
+  File "models/main.py", line 9, in <module>
+    import tensorflow as tf
+  File "/home/joker/.local/lib/python3.5/site-packages/tensorflow/__init__.py", line 41, in <module>
+    from tensorflow.python.tools import module_util as _module_util
+  File "/home/joker/.local/lib/python3.5/site-packages/tensorflow/python/__init__.py", line 53, in <module>
+    from tensorflow.core.framework.graph_pb2 import *
+  File "/home/joker/.local/lib/python3.5/site-packages/tensorflow/core/framework/graph_pb2.py", line 7, in <module>
+    from google.protobuf import descriptor as _descriptor
+  File "/home/joker/.local/lib/python3.5/site-packages/google/protobuf/__init__.py", line 37, in <module>
+    __import__('pkg_resources').declare_namespace(__name__)
+  File "/home/joker/.local/lib/python3.5/site-packages/pkg_resources/__init__.py", line 82, in <module>
+    __import__('pkg_resources.extern.packaging.version')
+  File "/home/joker/.local/lib/python3.5/site-packages/pkg_resources/_vendor/packaging/version.py", line 191, in <module>
+    class Version(_BaseVersion):
+  File "/home/joker/.local/lib/python3.5/site-packages/pkg_resources/_vendor/packaging/version.py", line 195, in Version
+    re.VERBOSE | re.IGNORECASE,
+  File "/usr/lib/python3.5/re.py", line 224, in compile
+    return _compile(pattern, flags)
+  File "/usr/lib/python3.5/re.py", line 293, in _compile
+    p = sre_compile.compile(pattern, flags)
+  File "/usr/lib/python3.5/sre_compile.py", line 536, in compile
+    p = sre_parse.parse(p, flags)
+  File "/usr/lib/python3.5/sre_parse.py", line 829, in parse
+    p = _parse_sub(source, pattern, 0)
+  File "/usr/lib/python3.5/sre_parse.py", line 437, in _parse_sub
+    itemsappend(_parse(source, state))
+  File "/usr/lib/python3.5/sre_parse.py", line 778, in _parse
+    p = _parse_sub(source, state)
+  File "/usr/lib/python3.5/sre_parse.py", line 437, in _parse_sub
+    itemsappend(_parse(source, state))
+  File "/usr/lib/python3.5/sre_parse.py", line 778, in _parse
+    p = _parse_sub(source, state)
+  File "/usr/lib/python3.5/sre_parse.py", line 437, in _parse_sub
+    itemsappend(_parse(source, state))
+  File "/usr/lib/python3.5/sre_parse.py", line 783, in _parse
+    state.closegroup(group, p)
+  File "/usr/lib/python3.5/sre_parse.py", line 91, in closegroup
+    self.groupwidths[gid] = p.getwidth()
+  File "/usr/lib/python3.5/sre_parse.py", line 213, in getwidth
+    self.width = min(lo, MAXREPEAT - 1), min(hi, MAXREPEAT)
+KeyboardInterrupt
